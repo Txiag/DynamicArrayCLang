@@ -105,18 +105,27 @@ int ali_find(array_list_int ali, int value){
   return -1;
 }
 
-/**
- * TODO:
- */
 int ali_insert_at(array_list_int ali, int index, int value){
-  
-  return 0;
+  if (index < 0 || index >= ali->size) return -1;
+  int i;
+  ali->a = (int *) realloc(ali->a, (ali->size + 1)*sizeof(int));
+  ali->size++;
+  for (i = (ali->size)-1; i > index; i--){
+    ali->a[i] = ali->a[i-1];
+  }
+  ali->a[index] = value;
+  return index;
 }
 
-/**
- * TODO:
- */
+
 int ali_remove_from(array_list_int ali, int index){
+  if (index < 0 || index >= ali->size) return -1;
+  int i;
+  for (i = index; i < ali->size-1; i++){
+    ali->a[i] = ali->a[i+1];
+  }
+  ali->size--;
+  ali->a = (int *) realloc(ali->a, (ali->size)*sizeof(int));
   return ali->size;
 }
 
