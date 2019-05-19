@@ -35,7 +35,7 @@ int ali_check_type(array_list_int ali){
 
 /* Increase capacity size of the array_list_int internal storage */
 int ali_realloc(array_list_int ali){
-  /* TODO: */
+  ali->a = (int *) realloc(ali->a, (ali->size + 1)*sizeof(int));
   return 0; /* Realloc could not allocate new memory */
 }
 
@@ -131,17 +131,15 @@ int ali_remove_from(array_list_int ali, int index){
   return ali->size;
 }
 
-/**
- * TODO: */
+
 unsigned int ali_capacity(array_list_int ali){
-  return 0;
+  return ali->capacity;
 }
 
 
-/**
- * TODO: */
+
 double ali_percent_occuped(array_list_int ali){
-  return 0.0;
+  return (ali->size / ali->capacity);
 }
 
 /* Release memory used by the struct and invalidate it. */
