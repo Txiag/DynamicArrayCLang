@@ -98,7 +98,7 @@ unsigned int ali_size(array_list_int ali){
 int ali_find(array_list_int ali, int value){
   int i = 0;
   for (i=0; i<ali.size; i++){
-    if (ali.a[i] == value){
+    if (ali->a[i] == value){
       return i;
     }
   }
@@ -110,10 +110,11 @@ int ali_insert_at(array_list_int ali, int index, int value){
   int i;
   ali->a = (int *) realloc(ali->a, (ali->size + 1)*sizeof(int));
   ali->size++;
+  ali->capacity+=4;  
   for (i = (ali->size)-1; i > index; i--){
     ali->a[i] = ali->a[i-1];
   }
-  ali->a[index] = value;
+  ali->a[index] = value; 
   return index;
 }
 
@@ -125,6 +126,7 @@ int ali_remove_from(array_list_int ali, int index){
     ali->a[i] = ali->a[i+1];
   }
   ali->size--;
+  ali->capacity-=4;
   ali->a = (int *) realloc(ali->a, (ali->size)*sizeof(int));
   return ali->size;
 }
