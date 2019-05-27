@@ -1,8 +1,8 @@
 /**
  * ANSI C Array List of int values library
  *
- * Author:
- * Date:
+ * Author: Thiago do Nascimento Ferreira
+ * Date: 20/05/2019
  *
  */
 
@@ -117,7 +117,7 @@ int ali_remove_from(array_list_int ali, int index);
 unsigned int ali_capacity(array_list_int ali);
 
 /**
- * Function: unsigned int ali_percent_occuped(array_list_int ali);
+ * Function: double ali_percent_occuped(array_list_int ali);
  *
  * Description: Check the array_list_int 'ali' occupation, in percent.
  *
@@ -135,4 +135,13 @@ double ali_percent_occuped(array_list_int ali);
  */
 void ali_destroy(array_list_int ali);
 
+/**
+ * Function: int ali_realloc(array_list_int ali);
+ *
+ * Description: Reallocate the array's capacity
+ *
+ * Return: the new capacity or 0 if realloc failed
+ *
+ */
+int ali_realloc(array_list_int ali);
 #endif

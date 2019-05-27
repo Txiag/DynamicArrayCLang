@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1558294240 source:c:\users\txiag\desktop\aaa\main.c
-	<stdio.h>
-	<stdlib.h>
-	"array_list_int.h"
-
-1558225304 c:\users\txiag\desktop\aaa\array_list_int.h
-
