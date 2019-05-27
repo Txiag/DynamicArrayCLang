@@ -142,7 +142,7 @@ unsigned int ali_capacity(array_list_int ali){
 }
 
 double ali_percent_occuped(array_list_int ali){
-  return (ali->size / ali->capacity);
+  return ((double)ali->size / (double)ali->capacity);
 }
 /* Release memory used by the struct and invalidate it. */
 void ali_destroy(array_list_int ali){
